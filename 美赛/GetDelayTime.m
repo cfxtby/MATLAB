@@ -1,0 +1,13 @@
+lumta=600;
+n=1000;
+mu=80;
+B=6;
+cars=getCars(1/lumta,n);
+RealDelay=getRealDelayTimes(cars,1/mu,B);
+plot([1:1:n],RealDelay,'r-');
+hold on;
+plot([1:1:n],PredictDelayTime( cars,mu,lumta,B ),'b-');
+hold off;
+xlabel('vehicle');ylabel('SeviceTime');
+text(500,0.12,strcat('mean:',num2str(mean(RealDelay))));
+legend('RealDelayTime','MathematicalExpectation');
